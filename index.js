@@ -3,7 +3,7 @@ module.exports = {
   rules: {},
   overrides: [
     {
-      files: ["**/*.{ts,tsx}"],
+      files: ["**/*.ts?(x)"],
       extends: ["./rules/base", "./rules/typescript", "prettier"],
     },
     {
@@ -11,7 +11,7 @@ module.exports = {
       extends: ["./rules/base", "./rules/react", "prettier"],
     },
     {
-      files: ["**/tests?/**/*.test.[jt]s"],
+      files: ["**/test?(s)/**/*.test.[jt]s"],
       extends: ["./rules/base", "./rules/jest", "prettier"],
     },
   ],
