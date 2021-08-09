@@ -4,7 +4,9 @@
   "description": "My eslint config",
   "main": "index.js",
   "scripts": {
-    "test": "cucumber"
+    "predoc": "mkdir -p doc",
+    "doc": "cucumber-js --format html:doc/index.html",
+    "test": "cucumber-js"
   },
   "repository": {
     "type": "git",
@@ -30,6 +32,7 @@
   "devDependencies": {
     "@cucumber/cucumber": "^7.3.1",
     "eslint": "^7.32.0",
+    "expect": "^27.0.6",
     "prettier": "^2.3.2"
   },
   "peerDependencies": {
