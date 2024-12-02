@@ -14,6 +14,7 @@ When("lint rule {string} is run", async function (ruleId) {
   const [message] = result.messages.filter(
     (message) => message.ruleId === ruleId
   );
+  console.log(message);
   this.severity = message?.severity;
 });
 

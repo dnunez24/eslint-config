@@ -1,44 +1,67 @@
 {
-  "name": "@dn24/eslint-config",
-  "version": "0.0.0",
-  "description": "My eslint config",
-  "main": "index.js",
+  "name": "@upperhandmusic/eslint-config",
+  "version": "1.0.0",
+  "description": "Upperhand Music standard eslint config",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js",
+      "types": "./dist/types/index.d.ts"
+    }
+  },
   "scripts": {
-    "predoc": "mkdir -p doc",
-    "doc": "cucumber-js --format html:doc/index.html",
-    "test": "cucumber-js"
+    "build": "tsc src",
+    "doc": "mkdir -p doc && cucumber-js --format html:doc/index.html",
+    "test": "cucumber-js",
+    "publish": "npm publish --provenance --access public"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/dnunez24/eslint-config.git"
+    "url": "https://github.com/upperhandmusic/eslint-config.git"
   },
   "keywords": [
     "eslint",
-    "eslintconfig"
+    "config"
   ],
-  "author": "David Nuñez <david.nunez@alumni.stanford.edu>",
+  "author": "Dave Nuñez <dave.nunez@upperhandmusic.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/dnunez24/eslint-config/issues"
+    "url": "https://github.com/upperhandmusic/eslint-config/issues"
   },
-  "homepage": "https://github.com/dnunez24/eslint-config#README.md",
+  "homepage": "https://github.com/upperhandmusic/eslint-config#README.md",
   "dependencies": {
-    "@typescript-eslint/eslint-plugin": "^4.29.0",
-    "@typescript-eslint/parser": "^4.29.0",
-    "eslint-config-airbnb-typescript": "^12.3.1",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-jest": "^24.4.0"
+    "@eslint/eslintrc": "^3.2.0",
+    "@eslint/js": "^9.16.0",
+    "eslint": "^9.16.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-eslint-comments": "^3.2.0",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-jest": "^28.9.0",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-react": "^7.37.2",
+    "eslint-plugin-react-hooks": "^5.0.0",
+    "eslint-plugin-storybook": "^0.11.1",
+    "eslint-plugin-tailwindcss": "^3.17.5",
+    "prettier": "^3.4.1",
+    "typescript-eslint": "^8.16.0"
   },
   "devDependencies": {
-    "@cucumber/cucumber": "^7.3.1",
-    "eslint": "^7.32.0",
-    "expect": "^27.0.6",
-    "prettier": "^2.3.2"
+    "@cucumber/cucumber": "^11.1.0",
+    "@types/eslint-config-prettier": "^6.11.3",
+    "@types/eslint-plugin-tailwindcss": "^3",
+    "@types/eslint__eslintrc": "^2.1.2",
+    "@types/node": "^22.10.1",
+    "expect": "^29.7.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
   },
   "peerDependencies": {
-    "eslint": "^7.32.0",
-    "eslint-plugin-eslint-comments": "^3.2.0",
-    "eslint-plugin-import": "^2.24.0",
-    "eslint-plugin-jsx-a11y": "^6.4.1"
-  }
+    "eslint": "^9.0.0"
+  },
+  "optionalDependencies": {
+    "jest": ">=29.0.0",
+    "typescript": ">=5.0.0"
+  },
+  "packageManager": "yarn@4.5.3+sha512.3003a14012e2987072d244c720506549c1aab73ee728208f1b2580a9fd67b92d61ba6b08fe93f6dce68fd771e3af1e59a0afa28dd242dd0940d73b95fedd4e90"
 }

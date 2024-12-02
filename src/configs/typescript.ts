@@ -1,7 +1,7 @@
-module.exports = {
-  extends: ["./base"],
-  plugins: ["@typescript-eslint"],
-  parser: "@typescript-eslint/parser",
+import { Linter } from "eslint";
+import TypescriptESLint from "typescript-eslint";
+
+const customRules = {
   rules: {
     "@typescript-eslint/naming-convention": [
       "error",
@@ -20,7 +20,7 @@ module.exports = {
       {
         selector: "variable",
         modifiers: ["global"],
-        format: ["UPPER_CASE"],
+        format: ["PascalCase"],
         leadingUnderscore: "forbid",
         trailingUnderscore: "forbid",
       },
@@ -61,25 +61,35 @@ module.exports = {
         trailingUnderscore: "forbid",
       },
       {
-        selector: "classProperty",
-        format: ["camelCase"],
-        modifiers: ["protected", "private"],
-        leadingUnderscore: "allow",
-        trailingUnderscore: "forbid",
-      },
-      {
         selector: "enumMember",
-        format: ["UPPER_CASE"],
+        format: ["PascalCase"],
         leadingUnderscore: "forbid",
         trailingUnderscore: "forbid",
       },
       {
         selector: "classProperty",
-        modifiers: ["static"],
-        format: ["UPPER_CASE"],
+        format: ["camelCase"],
         leadingUnderscore: "forbid",
         trailingUnderscore: "forbid",
       },
     ],
   },
 };
+
+const config = TypescriptESLint.config(
+  TypescriptESLint.configs.strictTypeChecked,
+  TypescriptESLint.configs.stylisticTypeChecked,
+  {
+    languageOptions: {
+      parserOptions: {
+        projectService: true,
+      },
+    },
+  },
+  {
+    files: ["**/*.js?(x)"],
+    extends: [TypescriptESLint.configs.disableTypeChecked],
+  },
+) as Linter.Config[];
+
+export default config;

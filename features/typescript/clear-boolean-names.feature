@@ -8,7 +8,7 @@ Feature: Clear boolean names
   when the library is used outside of a Typescript context. Semantically this reads
   more like an English sentence, which makes code more interpetable for humans.
 
-  Inspired by https://dart.dev/guides/language/effective-dart/design#prefer-a-non-imperative-verb-phrase-for-a-boolean-property-or-variable
+  Inspired by [Effective Dart](https://dart.dev/guides/language/effective-dart/design#prefer-a-non-imperative-verb-phrase-for-a-boolean-property-or-variable)
 
   """
   const person = new Person();

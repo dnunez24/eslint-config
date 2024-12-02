@@ -1,34 +1,36 @@
-# @dn24/eslint-config
+# @upperhandmusic/eslint-config
 
-This is my personal configuration for [eslint].
+This is the standard [eslint] configuration for Upperhand Music Javascript and Typescript projects.
 
 ## Install
 
-Install ESLint and this configuration as development dependencies:
+Install this configuration as a development dependency:
 
 ```bash
-npm install --save-dev eslint @dn24/eslint-config
+yarn add -D @upperhandmusic/eslint-config
 ```
 
 ## Usage
 
-Create an eslint config file in your project and extend from `@dn24/eslint-config`. Override any of the default configuration settings as you please. Here's an example:
+Create an `eslint.config.mjs` file in your project and use the `@upperhandmusic/eslint-config`. Here's an example:
 
 ```js
-module.exports = {
-  extends: '@dn24',
-  rules: {
-    ...
-  }
-}
-```
+import config from "@upperhandmusic/eslint-config";
 
-## Lint
+export default config;
+```
 
 Make sure the `eslint` executable is in your `PATH` and run it against your javascript files to check for compliance.
 
 ```bash
-eslint src/**/*.js
+yarn eslint .
 ```
+
+## File Naming Conventions
+
+- Files with `jsx` or `tsx` file extensions will enable React and React Hooks rules
+- Files in `__test__` directories or files named like `*.test.*` will enable Jest rules
+- Files named like `*.stories.*` or `*.story.*` will enable Storybook rules
+- All other files will
 
 [eslint]: https://eslint.org
