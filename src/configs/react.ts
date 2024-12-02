@@ -2,7 +2,7 @@ import type { Linter } from "eslint";
 import {
   makeFileSpecificConfig,
   makeFlatConfigExtends,
-} from "../helpers/compat.js";
+} from "../helpers/compat";
 
 const ReactRecommendedConfig = makeFlatConfigExtends(
   "plugin:react/recommended",

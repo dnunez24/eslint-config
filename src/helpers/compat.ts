@@ -1,6 +1,6 @@
 import { FlatCompat } from "@eslint/eslintrc";
 import type { Linter } from "eslint";
-import { getCurrentFileInfo } from "./fs.js";
+import { getCurrentFileInfo } from "./fs";
 
 interface CompatOptions {
   baseDirectory?: string;

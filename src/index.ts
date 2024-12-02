@@ -1,15 +1,15 @@
-import ESLint from "eslint";
+import { type Linter } from "eslint";
 import prettierConfig from "eslint-config-prettier";
-import baseConfig from "./configs/base.js";
-import jestConfig from "./configs/jest.js";
-import nextConfig from "./configs/next.js";
-import reactConfig from "./configs/react.js";
-import storybookConfig from "./configs/storybook.js";
-import tailwindCssConfig from "./configs/tailwindcss.js";
-import typescriptConfig from "./configs/typescript.js";
+import baseConfig from "./configs/base";
+import jestConfig from "./configs/jest";
+import nextConfig from "./configs/next";
+import reactConfig from "./configs/react";
+import storybookConfig from "./configs/storybook";
+import tailwindCssConfig from "./configs/tailwindcss";
+import typescriptConfig from "./configs/typescript";
 
 interface ESLintConfigMap {
-  [key: string]: ESLint.Linter.Config[];
+  [key: string]: Linter.Config[];
 }
 
 export const configs: ESLintConfigMap = {

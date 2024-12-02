@@ -1,10 +1,7 @@
 import eslint from "@eslint/js";
-
 import { type Linter } from "eslint";
-import {
-  makeFlatConfigExtends,
-  makeFlatConfigPlugin,
-} from "../helpers/compat.js";
+import globals from "globals";
+import { makeFlatConfigExtends, makeFlatConfigPlugin } from "../helpers/compat";
 
 const eslintCommentsPlugin = makeFlatConfigPlugin("eslint-comments");
 const eslintCommentsConfig = makeFlatConfigExtends(
@@ -16,10 +13,19 @@ const config: Linter.Config[] = [
   ...eslintCommentsPlugin,
   ...eslintCommentsConfig,
   {
+    languageOptions: {
+      globals: {
+        ...globals.node,
+        ...globals.browser,
+      },
+    },
     rules: {
       "eslint-comments/no-unused-disable": "error",
       complexity: ["warn", 11],
     },
+  },
+  {
+    ignores: [".yarn", "node_modules", ".pnp.*"],
   },
 ];
 

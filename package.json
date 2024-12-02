@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Upperhand Music standard eslint config",
   "type": "module",
+  "files": [
+    "dist"
+  ],
   "exports": {
     ".": {
       "import": "./dist/esm/index.js",
@@ -11,8 +14,9 @@
     }
   },
   "scripts": {
-    "build": "tsc src",
+    "build": "rm -rf dist && tsc",
     "doc": "mkdir -p doc && cucumber-js --format html:doc/index.html",
+    "lint": "eslint --flag unstable_ts_config --config eslint.config.ts .",
     "test": "cucumber-js",
     "publish": "npm publish --provenance --access public"
   },
@@ -33,6 +37,7 @@
   "dependencies": {
     "@eslint/eslintrc": "^3.2.0",
     "@eslint/js": "^9.16.0",
+    "@next/eslint-plugin-next": "^15.0.3",
     "eslint": "^9.16.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-eslint-comments": "^3.2.0",
@@ -43,6 +48,7 @@
     "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-storybook": "^0.11.1",
     "eslint-plugin-tailwindcss": "^3.17.5",
+    "globals": "^15.13.0",
     "prettier": "^3.4.1",
     "typescript-eslint": "^8.16.0"
   },
@@ -53,11 +59,14 @@
     "@types/eslint__eslintrc": "^2.1.2",
     "@types/node": "^22.10.1",
     "expect": "^29.7.0",
+    "jiti": "^2.4.1",
+    "tailwindcss": "^3.4.15",
     "tsx": "^4.19.2",
     "typescript": "^5.7.2"
   },
   "peerDependencies": {
-    "eslint": "^9.0.0"
+    "eslint": "^9.0.0",
+    "tailwindcss": "*"
   },
   "optionalDependencies": {
     "jest": ">=29.0.0",

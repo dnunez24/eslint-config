@@ -1,8 +1,10 @@
 import { Linter } from "eslint";
-import { makeFlatConfigExtends } from "../helpers/compat.js";
+import { makeFlatConfigExtends } from "../helpers/compat";
 
-// Includes react, import and jsx-a11y rules
-const nextCoreWebVitalsConfig = makeFlatConfigExtends("next/core-web-vitals");
+const nextCoreWebVitalsConfig = makeFlatConfigExtends(
+  "plugin:@next/next/core-web-vitals",
+);
+
 const config: Linter.Config[] = [...nextCoreWebVitalsConfig];
 
 export default config;

@@ -1,5 +1,5 @@
-const { Before, Given, When, Then } = require("@cucumber/cucumber");
-const expect = require("expect");
+import { Before, Given, Then, When } from "@cucumber/cucumber";
+import expect from "expect";
 
 Before("@typescript", function () {
   this.createLinter("typescript");
@@ -12,7 +12,7 @@ Given("code that looks like", function (code) {
 When("lint rule {string} is run", async function (ruleId) {
   const [result] = await this.linter.lintText(this.code);
   const [message] = result.messages.filter(
-    (message) => message.ruleId === ruleId
+    (message) => message.ruleId === ruleId,
   );
   console.log(message);
   this.severity = message?.severity;
